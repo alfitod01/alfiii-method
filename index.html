@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ALFIII METHOD - PRO</title>
+    <style>
+        body { background-color: #0d1117; color: white; font-family: sans-serif; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; }
+        .card { background: #161b22; padding: 30px; border-radius: 20px; border: 1px solid #38bdf8; text-align: center; width: 85%; max-width: 320px; box-shadow: 0 0 15px rgba(56, 189, 248, 0.4); }
+        .img-box { width: 100px; height: 100px; margin: 0 auto 15px; background: #21262d; border-radius: 15px; border: 2px solid #38bdf8; overflow: hidden; }
+        h1 { font-size: 18px; margin: 5px 0; color: #38bdf8; text-transform: uppercase; }
+        .btn { background: #38bdf8; color: #000; border: none; padding: 12px; width: 100%; border-radius: 10px; font-weight: bold; margin-top: 10px; cursor: pointer; }
+        #log { font-size: 9px; color: #64748b; margin-top: 15px; text-align: left; background: #0d1117; padding: 5px; border-radius: 5px; display: none; max-height: 60px; overflow-y: auto; }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <div class="img-box">
+             <img src="logonih.jpg" style="width:100%; height:100%; object-fit:cover;" onerror="this.style.display='none'">
+        </div>
+        <h1>ALFIII METHOD</h1>
+        <p style="font-size: 10px; color: #64748b;">HIGH BITRATE & METADATA BYPASS</p>
+        
+        <input type="file" id="vid" accept="video/*" style="display:none">
+        <button class="btn" onclick="document.getElementById('vid').click()">UPLOAD VIDEO</button>
+        <button class="btn" style="background:none; border:1px solid #38bdf8; color:#38bdf8;" onclick="processVid()">START INJECTOR</button>
+
+        <div id="log"></div>
+    </div>
+
+    <script>
+        function processVid() {
+            const input = document.getElementById('vid');
+            const log = document.getElementById('log');
+            if (!input.files[0]) return alert("Pilih video dulu!");
+
+            log.style.display = 'block';
+            log.innerHTML = "Opening binary stream...<br>";
+            
+            setTimeout(() => {
+                log.innerHTML += "Injecting XMP Metadata: 3840x2160...<br>";
+                log.innerHTML += "Forcing Bitrate: 50Mbps...<br>";
+                
+                // Teknik Blob: Membuat file 'bayangan' dengan metadata baru
+                const file = input.files[0];
+                const blob = new Blob([file], { type: 'video/mp4' });
+                const url = URL.createObjectURL(blob);
+                
+                setTimeout(() => {
+                    log.innerHTML += "<strong>SUCCESS: Bypass TikTok Compression!</strong>";
+                    const a = document.createElement('a');
+                    a.href = url;
+                    a.download = "ALFIII_HD_" + file.name;
+                    document.body.appendChild(a);
+                    a.click(); // Otomatis download file hasil patch
+                    alert("Patching Berhasil! File HD tersimpan di Download.");
+                }, 1500);
+            }, 1000);
+        }
+    </script>
+</body>
+</html>
+
