@@ -2,29 +2,45 @@
 <html lang="id">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ALFIII METHOD - BYPASS TIKTOK</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>ALFIII METHOD - PREMIUM BYPASS</title>
     <style>
-        body, html { margin: 0; padding: 0; height: 100%; overflow: hidden; background: #000; font-family: 'Arial', sans-serif; }
-        .header { 
-            position: fixed; top: 0; width: 100%; height: 70px; 
-            background: linear-gradient(90deg, #000, #1a1a1a); 
-            color: #00f2ea; display: flex; align-items: center; 
-            padding: 0 15px; z-index: 999; border-bottom: 2px solid #ff0050;
+        body, html { margin: 0; padding: 0; height: 100%; overflow: hidden; background: #000; }
+        
+        /* HEADER BUATAN LO (NUTUPIN HEADER XYETHER) */
+        .my-header { 
+            position: fixed; top: 0; width: 100%; height: 75px; 
+            background: #000; color: #00f2ea; display: flex; 
+            align-items: center; padding: 0 15px; z-index: 9999;
+            border-bottom: 2px solid #ff0050;
+            box-shadow: 0px 5px 15px rgba(0,0,0,0.5);
         }
-        .header img { width: 45px; height: 45px; border-radius: 50%; border: 2px solid #fff; margin-right: 12px; }
-        .header h1 { font-size: 16px; margin: 0; text-transform: uppercase; letter-spacing: 1px; }
-        iframe { width: 100%; height: calc(100% - 70px); border: none; margin-top: 70px; }
+        .my-header img { width: 45px; height: 45px; border-radius: 50%; border: 2px solid #fff; margin-right: 12px; }
+        .my-header h1 { font-size: 18px; margin: 0; text-transform: uppercase; font-family: sans-serif; font-weight: bold; }
+        .my-header small { color: #fff; font-size: 10px; display: block; }
+
+        /* IFRAME TEMPAT MESIN XYETHER MUNCUL */
+        #proxy-frame { 
+            width: 100%; height: 110%; /* Lebih tinggi biar bagian bawah ketutup dikit */
+            border: none; 
+            margin-top: -50px; /* NAH! Ini buat geser ke atas biar Header Xyether ilang */
+        }
+        
+        .container { width: 100%; height: 100%; pt-75px; }
     </style>
 </head>
 <body>
-    <div class="header">
+
+    <div class="my-header">
         <img src="logonih.jpg"> 
         <div>
             <h1>ALFIII METHOD</h1>
-            <small style="color: #eee; font-size: 10px;">Premium Bypass • No Compression 100%</small>
+            <small>Server Status: Online • 100% High Bitrate</small>
         </div>
     </div>
-    <iframe src="https://www.xyether.ovh/tiktok-method"></iframe>
+
+    <iframe id="proxy-frame" src="https://thingproxy.freeboard.io/fetch/https://www.xyether.ovh/tiktok-method"></iframe>
+
 </body>
 </html>
+
